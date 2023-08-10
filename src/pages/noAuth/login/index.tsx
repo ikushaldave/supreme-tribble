@@ -5,11 +5,8 @@ import { Input } from "@components/input";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@components/form";
 import { Button } from "@components/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@components/card";
-import { useAuthenticateUserMutation } from "@/service/auth";
 import { getKeys } from "@/lib/utils";
-import { setFullScreenLoading } from "@/store/commonSlice";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import useAuth from "@/hooks/useAuth";
 
 const loginSchema = z.object({
 	email: z.string().email("Invalid Email"),
@@ -18,6 +15,7 @@ const loginSchema = z.object({
 });
 
 const Login = () => {
+	const { login } = useAuth();
 	const form = useForm<z.infer<typeof loginSchema>>({
 		reValidateMode: "onSubmit",
 		resolver: zodResolver(loginSchema),
@@ -28,28 +26,13 @@ const Login = () => {
 		},
 	});
 
-	const [authUser] = useAuthenticateUserMutation();
-	const dispatch = useDispatch();
-	const navigate = useNavigate();
-
 	const onSubmit = (values: z.infer<typeof loginSchema>) => {
 		if (getKeys(form.formState.errors).length) {
 			setTimeout(() => form.clearErrors(["email", "password"]), 3000);
 			return;
 		}
 
-		dispatch(setFullScreenLoading(true));
-
-		authUser(values)
-			.unwrap()
-			.then((data) => {
-				if (data) {
-					localStorage.setItem("token", data.token);
-					navigate("/app")
-				}
-			})
-			.catch((error) => console.log(error))
-			.finally(() => dispatch(setFullScreenLoading(false)));
+		login(values);
 	};
 
 	return (

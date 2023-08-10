@@ -1,15 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
-import commonSlice from "./commonSlice";
-
+import { persistStore } from 'redux-persist';
+import sliceReducer from '../reducer'
 import { serviceReducer, serviceMiddleware } from "../service";
+
 
 export const store = configureStore({
 	reducer: {
-		common: commonSlice,
+		...sliceReducer,
 		...serviceReducer,
 	},
 	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(serviceMiddleware),
 });
+
+export const persistor = persistStore(store)
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;

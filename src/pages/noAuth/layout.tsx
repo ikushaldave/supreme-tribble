@@ -1,10 +1,12 @@
+import useAuth from "@/hooks/useAuth";
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 const animatedTexts = ["business with data", "ROI from AI/ML", "enterprise data fabric"];
 
 const Layout = () => {
 	const [currentAnimated, setCurrentAnimated] = useState<number>(0);
+	const { isLoggedIn } = useAuth();
 
 	useEffect(() => {
 		const timerId = setInterval(() => {
@@ -18,6 +20,10 @@ const Layout = () => {
 
 		return () => clearInterval(timerId);
 	}, []);
+
+	if (isLoggedIn) {
+		return <Navigate to="/app" />;
+	}
 
 	return (
 		<div className="h-screen flex items-center">

@@ -5,8 +5,6 @@ import { RootState } from "@/store";
 const Loader = () => {
 	const loading = useSelector(({ common }: RootState) => common.fullScreenLoader);
 
-	console.log(loading);
-
 	if (!loading) return false;
 
 	return (

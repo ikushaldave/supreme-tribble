@@ -7,5 +7,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getKeys(input: ObjectType) {
-	return Object.keys(input)
+	return Object.keys(input);
+}
+
+export function getMappedValue(array: Array<ObjectType>, key: string) {
+	return array.map((item: ObjectType) => item[key]);
 }

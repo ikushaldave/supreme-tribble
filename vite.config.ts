@@ -16,6 +16,7 @@ export default defineConfig({
 			"@pages": resolve(projectRootDir, "./src/pages"),
 			"@components": resolve(projectRootDir, "./src/components"),
 			"@store": resolve(projectRootDir, "./src/store"),
+			"@reducer": resolve(projectRootDir, "./src/reducer"),
 			"@service": resolve(projectRootDir, "./src/service"),
 			"@interface": resolve(projectRootDir, "./src/interface"),
 		},

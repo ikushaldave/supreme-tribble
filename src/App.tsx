@@ -1,42 +1,25 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Loader from "@components/Loader";
-import AuthLayout from "@pages/auth/layout";
-import Login from "@pages/auth/login";
+import NoAuthLayout from "@/pages/noAuth/layout";
+import Login from "@/pages/noAuth/login";
 import AppLayout from "@pages/app/layout";
 import Home from "@pages/app/home";
 import NoPageFound from "@pages/noPageFound";
 
-const router = createBrowserRouter(
-	[
-		{
-			element: <AuthLayout />,
-			children: [
-				{
-					path: "/login",
-					element: <Login />,
-				},
-			],
-		},
-		{
-			element: <AppLayout />,
-			children: [
-				{
-					path: "/app",
-					element: <Home />,
-				},
-			],
-		},
-		{
-			path: "*",
-			element: <NoPageFound />
-		}
-	],
-);
-
 const App = () => {
 	return (
 		<>
-			<RouterProvider router={router} />
+			<Routes>
+				<Route element={<NoAuthLayout />}>
+					<Route path="/login" element={<Login />} />
+				</Route>
+
+				<Route element={<AppLayout />}>
+					<Route path="/app" element={<Home />} />
+				</Route>
+
+				<Route path="*" element={<NoPageFound />} />
+			</Routes>
 			<Loader />
 		</>
 	);
