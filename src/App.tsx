@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Loader from '@components/Loader';
 import { Toaster } from '@components/toaster';
+import ErrorBoundary from '@components/error-boundary';
 import NoAuthLayout from '@/pages/noAuth/layout';
 import Login from '@/pages/noAuth/login';
 import AppLayout from '@pages/app/layout';
@@ -40,7 +41,7 @@ const App = () => {
   }, [toastInfo]);
 
   return (
-    <>
+    <ErrorBoundary>
       <Routes>
         <Route element={<NoAuthLayout />}>
           <Route path="/login" element={<Login />} />
@@ -56,7 +57,7 @@ const App = () => {
       </Routes>
       <Toaster />
       <Loader />
-    </>
+    </ErrorBoundary>
   );
 };
 

@@ -22,6 +22,24 @@ type RenderDataProps = {
   payload: DataPayloadStructure;
 };
 
+const Components = [
+  {
+    Element: RenderTable,
+    payload: TABLE_PAYLOAD,
+    id: RenderTable.name
+  },
+  {
+    Element: RenderBar,
+    payload: BAR_CHART_PAYLOAD,
+    id: RenderBar.name
+  },
+  {
+    Element: RenderPie,
+    payload: PIE_CHART_PAYLOAD,
+    id: RenderPie.name
+  }
+];
+
 function RenderTable({ dateRange, payload }: RenderDataProps) {
   const [searchValue, setSearchValue] = useState<string>('');
   const [getTableData, { isLoading, data: tableData }] = useGetDataMutation();
@@ -144,24 +162,6 @@ function RenderPie({ dateRange, payload }: RenderDataProps) {
     />
   );
 }
-
-const Components = [
-  {
-    Element: RenderTable,
-    payload: TABLE_PAYLOAD,
-    id: RenderTable.name
-  },
-  {
-    Element: RenderBar,
-    payload: BAR_CHART_PAYLOAD,
-    id: RenderBar.name
-  },
-  {
-    Element: RenderPie,
-    payload: PIE_CHART_PAYLOAD,
-    id: RenderPie.name
-  }
-];
 
 const RenderData = () => {
   const { user } = useAuth();

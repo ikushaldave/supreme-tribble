@@ -9,9 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prepare": "husky install",
-    "test": "vitest --config ./vitest.config.ts",
-    "coverage": "vitest --config ./vitest.config.ts run --coverage",
-    "cypress:open": "cypress open"
+    "test": "vitest --config ./vitest.config.ts"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
