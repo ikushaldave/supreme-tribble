@@ -27,15 +27,15 @@ const Layout = () => {
 
   return (
     <div className="h-screen flex items-center">
-      <div className="w-1/2 h-full flex flex-col p-10 bg-slate-300 text-white">
+      <div className="no-auth-container w-1/2 h-full flex flex-col p-10 bg-slate-300 text-white">
         <a href="https://www.sigmoid.com/" target="_blank">
           <img src="/logo.png" alt="sigmoid" className="h-14" />
         </a>
         <div className="mt-auto mb-10">
-          <h5 className=" text-red-700 font-bold text-2xl">
+          <h5 className=" text-white font-bold text-2xl">
             Reimagine your <span>{animatedTexts[currentAnimated]}</span>
           </h5>
-          <p className="text-gray-600">Combining data engineering and AI to deliver higher ROI</p>
+          <p className="text-white">Combining data engineering and AI to deliver higher ROI</p>
         </div>
       </div>
       <div className="w-1/2 p-10 flex justify-center">

@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store';
 import { UserRequest } from '@/interface/types';
-import { setFullScreenLoading } from '@/reducer/commonSlice';
+import { setFullScreenLoading, setToastInfo } from '@/reducer/commonSlice';
 import { setUser } from '@/reducer/userSlice';
 import { useAuthenticateUserMutation } from '@/service/auth';
 
@@ -32,7 +32,15 @@ const useAuth = () => {
           navigate('/app');
         }
       })
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        dispatch(
+          setToastInfo({
+            title: 'Failed to login',
+            description: error.data?.statusMessage,
+            variant: 'destructive'
+          })
+        );
+      })
       .finally(() => dispatch(setFullScreenLoading(false)));
   };
 

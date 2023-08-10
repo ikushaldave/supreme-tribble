@@ -1,6 +1,7 @@
 export type FullScreenLoaderType = boolean;
 
 export type ToastInfoType = {
-  message: string;
-  type: 'SUCCESS' | 'ERROR' | 'INFO';
+  title: string;
+  description?: string;
+  variant?: 'default' | 'destructive';
 } | null;

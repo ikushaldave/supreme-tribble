@@ -48,7 +48,12 @@ function RenderTable({ dateRange, payload }: RenderDataProps) {
   return (
     <div className="max-h-[500px] overflow-y-auto">
       <div className="flex my-4 mx-2">
-        <Input placeholder="Search..." className="w-96" value={searchValue} onChange={onChange} />
+        <Input
+          placeholder="Enter 3 char to search..."
+          className="w-96"
+          value={searchValue}
+          onChange={onChange}
+        />
       </div>
       <Table className=" ">
         <TableHeader>

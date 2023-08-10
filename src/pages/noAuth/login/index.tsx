@@ -48,9 +48,9 @@ const Login = () => {
               name="email"
               render={({ field }) => (
                 <FormItem className="grid gap-2">
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel htmlFor="email">Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter your email" {...field} />
+                    <Input placeholder="Enter your email" id="email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -61,26 +61,14 @@ const Login = () => {
               name="password"
               render={({ field }) => (
                 <FormItem className="grid gap-2">
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel htmlFor="password">Password</FormLabel>
                   <FormControl>
-                    <Input type="password" {...field} />
+                    <Input type="password" id="password" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            {/* <FormField
-							control={form.control}
-							name="rememberMe"
-							render={({ field }) => (
-								<FormItem className="flex items-center gap-2">
-									<FormControl>
-										<Checkbox id="rememberMe" checked={field.value} onChange={field.onChange} />
-									</FormControl>
-									<FormLabel className={cn("my-0")} htmlFor="rememberMe">Remember me</FormLabel>
-								</FormItem>
-							)}
-						/> */}
             <Button type="submit">Submit</Button>
           </form>
         </Form>
