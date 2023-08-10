@@ -1,16 +1,16 @@
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 import CommonReducer from './commonSlice';
-import UserReducer from './userSlice'
+import UserReducer from './userSlice';
 
 const persistConfig = {
   key: 'root',
-  storage,
-}
+  storage
+};
 
-const persistedUserReducer = persistReducer(persistConfig, UserReducer)
+const persistedUserReducer = persistReducer(persistConfig, UserReducer);
 
 export default {
   common: CommonReducer,
   user: persistedUserReducer
-}
+};

@@ -2,11 +2,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
     /* Bundler mode */
@@ -23,44 +19,22 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@assets/*": [
-        "./src/assets/*"
-      ],
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@lib/*": [
-        "./src/lib/*"
-      ],
-      "@pages/*": [
-        "./src/pages/*"
-      ],
-      "@store": [
-        "./src/store"
-      ],
-      "@store/*": [
-        "./src/store/*"
-      ],
-      "@reducer/*": [
-        "./src/reducer/*"
-      ],
-      "@service/*": [
-        "./src/service/*"
-      ],
-      "@interface/*": [
-        "./src/interface/*"
-      ],
+      "@/*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@store": ["./src/store"],
+      "@store/*": ["./src/store/*"],
+      "@reducer/*": ["./src/reducer/*"],
+      "@service/*": ["./src/service/*"],
+      "@interface/*": ["./src/interface/*"]
     }
   },
-  "include": [
-    "src/**/*"
-  ],
+  "include": ["src/**/*"],
   "references": [
     {
       "path": "./tsconfig.node.json"
     }
-  ],
+  ]
 }
