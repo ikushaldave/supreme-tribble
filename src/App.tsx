@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Loader from "@components/Loader";
 import NoAuthLayout from "@/pages/noAuth/layout";
 import Login from "@/pages/noAuth/login";
@@ -17,6 +17,8 @@ const App = () => {
 				<Route element={<AppLayout />}>
 					<Route path="/app" element={<Home />} />
 				</Route>
+
+				<Route path="/" element={<Navigate to="/login" />} />
 
 				<Route path="*" element={<NoPageFound />} />
 			</Routes>
